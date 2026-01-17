@@ -1,0 +1,6 @@
+domain: https://lekker.million.nl
+title: Lekker!
+site: site
+theme: theme
+templates: _templates
+generated-static-site: upload-generated-site

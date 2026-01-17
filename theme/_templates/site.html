@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {%- block canonical %}{% endblock -%}
+    <title>{% block title %}{{ site.title }}{% endblock %}</title>
+    <meta name="description" content="Recepten, drankjes, en restaurants waar wij van genieten.">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    {%- block meta %}{% endblock -%}
+    <link rel="stylesheet" href="/style/site.css">
+    <link rel="shortcut icon" href="/style/favicon.ico">
+    <link rel="apple-touch-icon" sizes="120x120" href="/style/touch-icon-120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/style/touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/style/touch-icon-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/style/touch-icon-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/style/touch-icon-180.png">
+  </head>
+  <body>
+    <div class="body">
+      <aside>
+        <a class="logo" href="/">
+          <img src="/style/logo-lekkere-mol.svg" width="100" height="69" alt="Lekker! logo"><br>
+          Lekker!
+        </a>
+        <p class="description">Recepten, drankjes, en restaurants waar wij van genieten.</p>
+        {% block menu %}
+        <ul class="menu">
+          {%- for item in menu.items recursive %}
+             <li class="type-{{ item.pathlist[0] }}{% if path == item.path or path.startswith(item.path + "/") %} active{% endif %}">
+              <a href="{{ item.path }}">{% if loop.depth == 1 %}<span class="typeicon">{% include "style/" + item.pathlist[0] + ".svg" %}</span>{% endif %}{{ item.config.name|capitalize }}</a>
+             {% if path == item.path or path.startswith(item.path + "/") %}
+             {%- if item.items -%}
+                 <ul class="submenu">{{ loop(item.items) }}</ul>
+             {%- endif %}{%- endif %}</li>
+          {%- endfor %}
+        </ul>
+        {% endblock %}
+        <p class="copyright">
+          © 2018-<span id="cyear">2019</span> marc &amp; francine
+        </p>
+      </aside>
+
+      <div class="content">
+        <img class="show-menu-button" src="/style/logo-lekkere-mol.svg" width="100" height="69" alt="Menu">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+
+    <script type="text/javascript">
+
+      function formatThisYear() {
+        var date = new Date();
+        return date.getFullYear();
+      }
+      var cyear = document.querySelector("#cyear");
+      cyear.innerHTML = formatThisYear();
+
+      var isScrolling = false;
+      var showmenubutton = document.querySelector(".show-menu-button");
+      var body = document.querySelector(".body"); // not body element itself
+
+      function toggle_menu(event) {
+        if (event.target == showmenubutton) {
+          body.classList.add('show-menu');
+          event.preventDefault();
+        }
+        else if (body.classList.contains('show-menu')) {
+          body.classList.remove('show-menu');
+        }
+      }
+
+      document.addEventListener('click', function (event) { toggle_menu(event); }, false);
+      document.addEventListener('touchstart', function (event) { isScrolling = false; }, false);
+      document.addEventListener('touchmove', function (event) { isScrolling = true; }, false);
+      document.addEventListener('touchend', function (event) { if (!isScrolling) toggle_menu(event); }, false);
+
+
+    </script>
+  </body>
+</html>
+
+

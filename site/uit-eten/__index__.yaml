@@ -1,0 +1,17 @@
+
+title: Lekker uit eten
+name: Uit eten
+
+menu-order: ["..."]
+
+pages:
+  filter:
+    type: uit-eten
+  order: title asc
+
+  groups:
+    - by: plaats asc
+      by-order: ["Amersfoort", "..."]
+      title: "In {{ group|capitalize }} uit eten"
+      name: "{{ group|capitalize }}"
+      order: title asc

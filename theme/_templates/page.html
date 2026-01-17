@@ -1,0 +1,34 @@
+{% extends "_templates/site.html" %}
+{% block title %}{{ page.config.title }}{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ page.canonical }}">{% endblock %}
+{% block meta %}
+  <meta property="og:title" content="{{ page.config.title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.domain }}{{ page.url }}">
+{% if page.config.image %}
+  <meta property="og:image" content="{{ site.domain }}{{ page.config.image|imageurl(1000, 300) }}">
+  <meta property="og:image:width" content="1000">
+  <meta property="og:image:height" content="300">
+{% endif %}
+  <meta property="og:description" content="{{ page.config.description }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+{% endblock %}
+
+{% block content %}
+
+  <h1>{{ page.config.title }}</h1>
+
+  {% if page.config.bereidingstijd %}
+    {% if page.config.image %}
+      <img class="with-duration" {{ page.config.image|imageattrs(1000, 300) }} sizes="1000px" alt="Foto van {{ page.config.title|lower }}">
+    {% endif %}
+    <p class="duration">Bereiding {{ page.config.bereidingstijd }}</p>
+  {% else %}
+    {% if page.config.image %}
+      <img {{ page.config.image|imageattrs(1000, 300) }} sizes="1000px" alt="Foto van {{ page.config.title|lower }}">
+    {% endif %}
+  {% endif %}
+
+  {{page.content|safe}}
+
+{% endblock %}

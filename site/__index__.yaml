@@ -1,0 +1,7 @@
+
+title: Lekker!
+
+menu-order: [eten, drinken, uit-eten]
+
+pages:
+  order: title asc

@@ -1,0 +1,17 @@
+
+title: Lekker drinken
+name: Drinken
+
+menu-order: ["..."]
+
+pages:
+  filter:
+    type: drinken
+  order: title asc
+
+  groups:
+    - by: soort asc
+      by-order: ["rode wijn", "witte wijn", bubbels, bier, grappa, "..."]
+      title: "{{ group|capitalize }} drinken"
+      name: "{{ group|capitalize }}"
+      order: title asc

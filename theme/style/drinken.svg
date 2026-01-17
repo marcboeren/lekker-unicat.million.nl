@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>drinken</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="drinken" transform="translate(24.000000, 17.000000)" stroke="#000000">
+            <path d="M14,32.3515625 L2,32.3515625" id="foot" stroke-linecap="square"></path>
+            <path d="M8,19 L8,32.3515625" id="stem" stroke-linecap="square"></path>
+            <path d="M1.70459916,0.500008441 C0.340386126,12.5538045 2.49555411,18.4169922 8,18.4169922 C13.5044459,18.4169922 15.6596139,12.5538045 14.2954008,0.500008441 L1.70460012,0.5 Z" id="bowl"></path>
+            <path d="M1.4839386,5 L14.5160614,5" id="drink" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>

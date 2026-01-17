@@ -1,0 +1,17 @@
+
+title: Lekker eten
+name: Eten
+
+menu-order: ["..."]
+
+pages:
+  filter:
+    type: eten
+  order: title asc
+
+  groups:
+    - by: soort asc
+      by-order: [vlees, vis, vega, groenten, pasta, soep, salade, "..."]
+      title: "We eten {{ group }}"
+      name: "{{ group|capitalize }}"
+      order: title asc
