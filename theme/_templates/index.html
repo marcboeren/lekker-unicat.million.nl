@@ -20,7 +20,7 @@
         {% if page.config.type %}
           <div class="typeinfo type-{{ page.config.type }}"><span class="typeicon">{% include "style/" + page.config.type + ".svg" %}</span>
           {% if page.config.type == "eten" %}
-            {{ page.config.soort }}
+            <div class="soort">{{ page.config.soort|join(", ")|capitalize }}</div>
             <div class="bereidingstijd">{{ page.config.bereidingstijd }}</div>
           {% elif page.config.type == "drinken" %}
             {{ page.config.soort }}

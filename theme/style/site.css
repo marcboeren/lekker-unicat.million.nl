@@ -126,7 +126,8 @@ aside p.copyright { color: #999; }
 .content .tile .card .typeinfo { padding: 5px; font-size: 0.8em; }
 .content .tile .card .typeinfo .typeicon { display: inline-block; vertical-align: bottom; position: relative; left: -3px; margin-right: -5px; }
 .content .tile .card .typeinfo .typeicon svg { width: 24px; height: 24px; vertical-align: bottom; }
-.content .tile .card .typeinfo .bereidingstijd { float: right; position: relative; top: 2px; white-space: nowrap; }
+.content .tile .card .typeinfo .bereidingstijd { text-indent: 24px; white-space: nowrap; }
+.content .tile .card .typeinfo .soort { display: inline-block; }
 .content .tile .no-card { display: block; background: white; min-height: 240px; }
 
 @media only screen and (max-width: 499px) {
